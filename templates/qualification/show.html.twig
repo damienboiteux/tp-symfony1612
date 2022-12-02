@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello QualificationController!{% endblock %}
+
+{% block body %}
+
+<p>Code : {{ qualification.code}}</p>
+<p>Libellé : {{ qualification.libelle}}</p>
+
+<a href="{{path('app_qualification') }}">Retour à la liste</a>
+{% endblock %}

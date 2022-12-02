@@ -1,0 +1,6 @@
+   COPIL    :  Copilote
+   CDB      :  Commandant de bord
+   PIM      :  Pilote à l'instruction
+   TRANSFO  :  En cours de transformation
+
+   

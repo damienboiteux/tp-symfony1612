@@ -3,18 +3,24 @@
 {% block title %}Hello QualificationController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<table>
+    <thead>
+        <th>#</th>
+        <th>Code</th>
+        <th>Libellé</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {% for qualification in qualifications %}
+            <tr>
+                <td>{{ qualification.id}}</td>
+                <td>{{ qualification.code}}</td>
+                <td>{{ qualification.libelle}}</td>
+                <td><a href="{{path('show_qualification', {'id':qualification.id})}}">Voir</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/home/damien/symfony-1612/tp1/src/Controller/QualificationController.php'|file_link(0) }}">src/Controller/QualificationController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/home/damien/symfony-1612/tp1/templates/qualification/index.html.twig'|file_link(0) }}">templates/qualification/index.html.twig</a></code></li>
-    </ul>
-</div>
 {% endblock %}

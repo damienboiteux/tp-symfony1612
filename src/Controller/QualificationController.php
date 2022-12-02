@@ -2,17 +2,21 @@
 
 namespace App\Controller;
 
+use App\Entity\Qualification;
+use App\Repository\QualificationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+
 class QualificationController extends AbstractController
 {
+    #[Route('/', name: 'home')]
     #[Route('/qualification', name: 'app_qualification')]
-    public function index(): Response
+    public function index(QualificationRepository $repo): Response
     {
         return $this->render('qualification/index.html.twig', [
-            'controller_name' => 'QualificationController',
+            'qualifications' => $repo->findAll(),
         ]);
     }
 
@@ -24,13 +28,26 @@ class QualificationController extends AbstractController
         ]);
     }
 
-    #[Route('/qualification/{id}}', name: 'show_qualification')]
-    public function show(): Response
+
+
+
+
+
+
+
+    #[Route('/qualification/{id}', name: 'show_qualification')]
+    public function show(Qualification $qualification): Response
     {
-        return $this->render('qualification/index.html.twig', [
-            'controller_name' => 'QualificationController',
+        return $this->render('qualification/show.html.twig', [
+            'qualification' => $qualification,
         ]);
     }
+
+
+
+
+
+
 
     #[Route('/qualification/edit/{id}', name: 'edit_qualification')]
     public function edit(): Response
